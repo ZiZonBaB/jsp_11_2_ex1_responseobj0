@@ -14,10 +14,10 @@ agestr  = request.getParameter("age");
 age = Integer.parseInt(agestr);
 
 if(age>=20){
-	response.sendRedirect("pass.jsp");
+	response.sendRedirect("pass.jsp?age="+age); //가지고온 age값을 전달
 }
 else{
-	response.sendRedirect("ng.jsp");
+	response.sendRedirect("ng.jsp?age="+age);//가지고온 age값을 전달
 }
 %>
 
