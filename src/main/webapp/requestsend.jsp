@@ -8,16 +8,18 @@
 </head>
 <body>
 	<%!int age;
-String agestr;%>
+String agestr,name;%>
 	<%  
+	request.setCharacterEncoding("EUC-KR");
+	name = request.getParameter("name");
 agestr  = request.getParameter("age");
 age = Integer.parseInt(agestr);
 
 if(age>=20){
-	response.sendRedirect("pass.jsp?age="+age); //가지고온 age값을 전달
+	response.sendRedirect("pass.jsp?age="+age+"&name="+name); //가지고온 age값을 전달
 }
 else{
-	response.sendRedirect("ng.jsp?age="+age);//가지고온 age값을 전달
+	response.sendRedirect("ng.jsp?age="+age+"&name="+name);//가지고온 age값을 전달
 }
 %>
 
