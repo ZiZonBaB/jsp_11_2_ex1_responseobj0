@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -11,15 +12,18 @@
 String agestr,name;%>
 	<%  
 	request.setCharacterEncoding("EUC-KR");
+
 	name = request.getParameter("name");
 agestr  = request.getParameter("age");
 age = Integer.parseInt(agestr);
-
+	String name2 = URLEncoder.encode(name,"EUC-KR");
 if(age>=20){
-	response.sendRedirect("pass.jsp?age="+age+"&name="+name); //가지고온 age값을 전달
+
+	response.sendRedirect("pass.jsp?age="+age+"&name="+name2); //가지고온 age값을 전달
 }
 else{
-	response.sendRedirect("ng.jsp?age="+age+"&name="+name);//가지고온 age값을 전달
+
+	response.sendRedirect("ng.jsp?age="+age+"&name="+name2);//가지고온 age값을 전달
 }
 %>
 
